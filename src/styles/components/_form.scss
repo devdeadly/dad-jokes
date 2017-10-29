@@ -1,0 +1,50 @@
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .input-container{
+    margin-bottom: $s-size;
+    transition: all .3s ease-in-out;
+  }
+  .name-input, .react-tel-input input[type=tel], .react-tel-input input[type=text]  {
+    height: 50px;
+    font-size: $s-size;
+    background: transparent;
+    margin-bottom: $m-size;
+    border: none;
+    border: 3px solid white;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-family: $default-font;
+    transition: all .3s ease-in-out;
+    &::placeholder{
+      color: white;
+    }
+    &:focus{
+      outline: 0;
+    }
+  }
+
+  .flag-dropdown {
+    background: transparent;
+    border: none;
+    border: 3px solid white;
+  }
+  .react-tel-input .flag-dropdown:hover .selected-flag {
+    background: transparent;
+  }
+  .react-tel-input .flag-dropdown.open-dropdown, .react-tel-input .flag-dropdown.open-dropdown .selected-flag {
+    background: transparent;
+  }
+  
+}
+
+@media (min-width: $desktop-breakpoint) {
+  #form {
+    .name-input, .react-tel-input input[type=tel], .react-tel-input input[type=text]  {
+      font-size: $m-size;
+    }
+  }
+}

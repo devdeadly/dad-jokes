@@ -1,0 +1,35 @@
+
+.css-1vuw43k, [data-css-1vuw43k] {
+  transition: all .3s ease-in-out;
+  
+  img {
+    height: $m-size;
+    transition: all .3s ease-in-out;
+  }
+}
+
+.css-1bdcmy7, [data-css-1bdcmy7], .css-1vm9g5e, [data-css-1vm9g5e]  {
+  margin: 0;
+  width: 100%;
+  font-size: $s-size;
+  transition: all .3s ease-in-out;
+}
+
+.css-6bx4c3, [data-css-6bx4c3] {
+  text-transform: none;
+}
+
+@media (min-width: $desktop-breakpoint){
+  .css-1bdcmy7, [data-css-1bdcmy7], .css-1vm9g5e, [data-css-1vm9g5e]  {
+    font-size: $m-size;
+  }
+
+  .css-1vuw43k, [data-css-1vuw43k] {
+    margin: $m-size;
+    
+    img {
+      height: $l-size;
+    }
+  }
+  
+}
