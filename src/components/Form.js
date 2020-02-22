@@ -2,71 +2,74 @@ import React, { Component } from 'react';
 import Button from './Button';
 import axios from 'axios';
 import AlertContainer from 'react-alert';
-import ReactPhoneInput from 'react-phone-input-2';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 class Form extends Component {
-  
   state = {
     phone: '+1',
     name: ''
   };
-  
+
   alertOptions = {
     offset: 14,
     theme: 'dark',
     time: 10000,
     transition: 'scale'
-  }
+  };
 
-  onSubmit = (e) => {
+  onSubmit = e => {
     e.preventDefault();
     let { name, phone } = this.state;
-    if(name && phone) {
-      axios.post('/api', {
-        name: this.state.name,
-        phone: this.state.phone.replace(/\D+/g, '')
-      })
+    if (name && phone) {
+      axios
+        .post('/api', {
+          name: this.state.name,
+          phone: this.state.phone.replace(/\D+/g, '')
+        })
         .then(obj => {
-          if(obj.data === 'Invalid Number'){
-            this.msg.error((<p>error! check ur number</p>), {
+          if (obj.data === 'Invalid Number') {
+            this.msg.error(<p>error! check ur number</p>, {
               icon: <img src="/static/images/error.png" />
             });
           } else {
-            this.msg.success((<p>joke sent:<br /><br />{obj.data.joke.toLowerCase()}</p>), {
-              icon: <img src="/static/images/success.png" />
-            });
+            this.msg.success(
+              <p>
+                joke sent:
+                <br />
+                <br />
+                {obj.data.joke.toLowerCase()}
+              </p>,
+              {
+                icon: <img src="/static/images/success.png" />
+              }
+            );
             this.setState(() => ({
-              phone:'+1',
-              name: '',
+              phone: '+1',
+              name: ''
             }));
           }
         });
-    } else {
-      // if no number has been entered
-      if(!this.state.phone){
-        this.msg.error((<p>u forgot the number...</p>), {
-          icon: <img src="/static/images/error.png" />
-        });
-        return;
-      }
-      if(!this.state.name){
-        this.msg.error((<p>u have no name?!</p>), {
-          icon: <img src="/static/images/error.png" />
-        });
-        return;
-      }
+    } else if (!this.state.phone) {
+      return this.msg.error(<p>u forgot the number...</p>, {
+        icon: <img src="/static/images/error.png" />
+      });
+    } else if (!this.state.name) {
+      return this.msg.error(<p>enter a name ya dilly</p>, {
+        icon: <img src="/static/images/error.png" />
+      });
     }
   };
-  
-  onNameChange = (e) => {
+
+  onNameChange = e => {
     e.persist();
     this.setState(() => ({
       name: e.target.value
     }));
-  }
-  
-  onPhoneChange = (phone) => {
-    this.setState(()=>({phone}))
+  };
+
+  onPhoneChange = phone => {
+    this.setState(() => ({ phone }));
   };
 
   render() {
@@ -74,23 +77,23 @@ class Form extends Component {
       <div>
         <form id="form" onSubmit={this.onSubmit}>
           <div className="input-container">
-            <input 
-              type="text" 
+            <input
+              type="text"
               className="name-input"
               placeholder="ur name"
               value={this.state.name}
               onChange={this.onNameChange}
             />
-            <ReactPhoneInput 
+            <PhoneInput
               id="phoneInput"
-              defaultCountry={'us'}
+              country={'us'}
               onChange={this.onPhoneChange}
               value={this.state.phone}
             />
           </div>
-          <Button title="nu fone hu dis" type="submit" />
+          <Button title="git r done" type="submit" />
         </form>
-        <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
+        <AlertContainer ref={a => (this.msg = a)} {...this.alertOptions} />
       </div>
     );
   }

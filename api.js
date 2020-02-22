@@ -1,8 +1,5 @@
 // access variables in .env file through process.env
 require('dotenv').config();
-
-const path = require('path');
-const schedule = require('node-schedule');
 const fetch = require('node-fetch');
 
 const {
@@ -47,6 +44,4 @@ module.exports = {
 };
 
 // SEND JOKE EVERY TEN SECONDS
-// const sendTextEveryTenSeconds = schedule.scheduleJob('*/10 * * * * * ', () => {
-//   getDadJoke();
-// });
+// setInterval(getDadJoke(), 600000)

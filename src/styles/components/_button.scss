@@ -1,24 +1,23 @@
 .big-button {
-  background: lighten($theme-orange, 10%);
   font-family: $default-font;
   color: white;
-  border: none;
+  background: darken($primary, 15%);
+  border: 0;
   border-radius: 3px;
-  padding: $s-size;
+  padding: $s-size $l-size;
   font-size: $s-size;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
-  width: 100%;
+  width: 80%;
 }
 
-.big-button:disabled {
-  background: lighten($theme-orange, 30%);
-  cursor: not-allowed;
+.big-button:hover {
+  @extend .z-depth-4;
 }
 
 @media (min-width: $desktop-breakpoint) {
   .big-button {
-    padding: $m-size;
     font-size: $m-size;
+    width: 60%;
   }
 }

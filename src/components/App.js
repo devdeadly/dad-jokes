@@ -5,7 +5,7 @@ import Header from './Header';
 export default () => {
   return (
     <div>
-      <Header title="dad jokes" subtitle="you supply the number, we supply the jokes"/>
+      <Header title="dad jokes" subtitle="is your refrigerator running?" />
       <div className="container">
         <div className="widget z-depth-2">
           <Form />
@@ -13,4 +13,4 @@ export default () => {
       </div>
     </div>
   );
-}
+};

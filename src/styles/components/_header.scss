@@ -1,9 +1,9 @@
 .header {
-  background: $theme-green;
+  background: $primary;
   color: #fff;
   margin-bottom: $m-size;
   padding: $m-size 0;
-  border-bottom: $s-size solid darken($theme-green, 10%);
+  border-bottom: $s-size solid darken($primary, 10%);
 }
 
 .header__title {
