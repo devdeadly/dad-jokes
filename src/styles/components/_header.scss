@@ -1,0 +1,17 @@
+.header {
+  background: $primary;
+  color: #fff;
+  margin-bottom: $m-size;
+  padding: $m-size 0;
+  border-bottom: $s-size solid darken($primary, 10%);
+}
+
+.header__title {
+  font-size: $l-size;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .header__title {
+    font-size: $xl-size;
+  }
+}
