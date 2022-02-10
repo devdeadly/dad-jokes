@@ -23,7 +23,7 @@
     "file-loader": "^1.1.5",
     "img-loader": "^2.0.0",
     "node-fetch": "^1.7.3",
-    "node-sass": "^4.5.3",
+    "node-sass": "^7.0.0",
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
